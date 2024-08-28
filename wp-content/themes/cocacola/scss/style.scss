@@ -1,0 +1,26 @@
+/*
+Theme Name: Cocacola
+Author: Anonymous
+Author URI:
+Version: 1.0.0
+Description: Base theme for Wordpress with ACF
+Text Domain: base
+Tags: one-column, two-columns
+Theme URI:
+*/
+
+@import "includes/normalize";
+@import "includes/fullpage";
+@import "includes/select2";
+
+@import "layout/fonts";
+@import "layout/variables";
+@import "layout/buttons";
+@import "layout/common";
+@import "layout/header";
+
+@import "blocks/hero-section";
+@import "blocks/cta-section";
+@import "blocks/tabs-section";
+
+//@import "includes/swiper";

@@ -1,0 +1,20 @@
+.btn, .wpcf7-form input[type="submit"] {
+  color: $white;
+  font-family: $base-font;
+  background-color: transparent;
+  display: inline-block;
+  vertical-align: middle;
+  text-decoration: none;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  padding: 12px 0;
+  border-radius: 20px 20px 20px 0;
+  border: 2px solid $white;
+  cursor: pointer;
+  transition: border-radius 0.4s ease 0s;
+  &:hover {
+    border-radius: 20px 0 20px 20px;
+  }
+}

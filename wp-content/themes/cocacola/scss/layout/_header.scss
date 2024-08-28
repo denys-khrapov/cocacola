@@ -1,0 +1,164 @@
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  padding-top: 30px;
+  @media (min-width: 1280px) {
+    padding-top: 38px;
+  }
+  .container {
+    max-width: 1388px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+}
+
+.header-navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  column-gap: 35px;
+  row-gap: 38px;
+  list-style-type: none;
+  position: fixed;
+  top: -100%;
+  right: -100%;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s, visibility 0.6s;
+  transition-delay: 0.3s;
+  padding: 0;
+  margin: 0;
+  &.active {
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    opacity: 1;
+    visibility: visible;
+    @media (min-width: 767px) {
+      right: 300px;
+      transform: translateY(-50%);
+    }
+  }
+  @media (min-width: 1280px) {
+    flex-direction: row;
+    position: static;
+    opacity: 1;
+    visibility: visible;
+  }
+  a {
+    font-family: $second-font;
+    color: $white;
+    font-size: 32px;
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    transition: color 0.2s;
+    @media (min-width: 1280px) {
+      font-size: 16px;
+    }
+  }
+  .menu-item {
+    cursor: pointer;
+    overflow: hidden;
+    &:hover {
+      a {
+        animation: MoveUpInitial 0.2s forwards, MoveUpEnd 0.2s forwards 0.2s;
+      }
+    }
+  }
+}
+
+@keyframes MoveUpInitial {
+  to {
+    transform: translate3d(0, -105%, 0);
+  }
+}
+
+@keyframes MoveUpEnd {
+  from {
+    transform: translate3d(0, 100%, 0);
+    color: $red;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    color: $red;
+  }
+}
+
+.menu-burger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  position: relative;
+  cursor: pointer;
+  @media (min-width: 1280px) {
+    display: none;
+  }
+  &::before {
+    content: '';
+    background-color: $red;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 100px 0 100px 100px;
+    transition: width 0.6s, height 0.6s, top 0.6s, left 0.6s, border-radius 0.6s;
+  }
+  span {
+    position: relative;
+    display: block;
+    background-color: $white;
+    width: 34px;
+    height: 3.5px;
+    transition: background-color 0.1s;
+    &::before, &::after {
+      content: '';
+      background-color: $white;
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 34px;
+      height: 3.5px;
+      transition: transform 0.3s, top 0.3s;
+    }
+    &::before {
+      top: -8.5px;
+      transform: rotate(0deg);
+    }
+    &::after {
+      top: 8.5px;
+      transform: rotate(0deg);
+    }
+  }
+  &.active {
+    span {
+      background-color: $red;
+      &::before {
+        top: -5.5px;
+        transform: rotate(45deg);
+      }
+      &::after {
+        top: -5.5px;
+        transform: rotate(-45deg);
+      }
+    }
+    &::before {
+      width: 1520px;
+      height: 1520px;
+      left: -755px;
+      top: -445px;
+      border-radius: 50%;
+    }
+  }
+}
